@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "tasks": [
+    {
+      "id": "treino-a",
+      "title": "Preparar atividade fictícia",
+      "due": "",
+      "done": false
+    },
+    {
+      "id": "treino-b",
+      "title": "Conferir ferramenta de treino",
+      "due": "",
+      "done": true
+    }
+  ]
+}

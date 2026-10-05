@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Meu organizador — laboratório do curso</title>
+<style>
+:root{color-scheme:light;--ink:#242b28;--paper:#f7f3ea;--green:#0e6b55}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:18px/1.6 system-ui,sans-serif}main{max-width:850px;margin:auto;padding:28px 20px}h1{font:500 clamp(32px,6vw,52px)/1.1 Georgia,serif}a{color:var(--green)}.eyebrow{font-size:14px;letter-spacing:.1em;text-transform:uppercase}.notice{padding:14px 18px;border-left:4px solid var(--green);background:#e7efe9}form,.panel{background:white;border:1px solid #c5cec8;padding:22px;border-radius:12px;margin:20px 0}label{display:block;font-weight:600;margin:10px 0}input,select,button{font:inherit;max-width:100%;padding:10px 14px;border-radius:7px;border:1px solid #728078}input:not([type=file]),select{width:100%;background:white;color:var(--ink)}button{background:var(--green);color:white;cursor:pointer;margin:6px 4px 6px 0}button.secondary{background:white;color:var(--green)}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #9b5400;outline-offset:3px}.row{display:flex;gap:18px;align-items:end}.row>*{flex:1}.item{padding:14px 0;border-bottom:1px solid #d6ddd8}.item h3{margin:0;overflow-wrap:anywhere}.meta{font-size:15px;color:#47554d}.item button{font-size:16px}.empty{padding:20px 0}#status{min-height:1.6em;font-weight:600}#status[data-error=true]{color:#a32c22}footer{margin-top:32px;font-size:15px}small{font-size:15px}.tools{display:flex;flex-wrap:wrap;gap:8px}#importFile{display:block;font-size:16px}#recovery{background:#fff3df;padding:14px} [hidden]{display:none!important}@media(max-width:550px){.row{display:block}}
+</style></head><body><main>
+<p class="eyebrow">Da Ideia ao App v6 · laboratório</p><h1>Meu organizador</h1>
+<p class="notice">Use somente demandas fictícias. Os registros ficam neste navegador. Esta demonstração não possui contas, colaboração ou proteção multiusuário.</p>
+<p><a href="../curso.html#aula-5">Voltar ao curso</a> · <a href="../materiais/kit-organizador.zip" download>Baixar o kit editável</a></p>
+<div id="recovery" hidden><p>Os dados locais não puderam ser lidos. Nenhum registro foi apagado. Exporte o conteúdo original antes de tentar recuperar.</p><button id="rawExport" type="button">Exportar conteúdo original</button></div>
+<form id="taskForm" novalidate><h2>Nova demanda</h2><label for="title">Título</label><input id="title" name="title" maxlength="120" required autocomplete="off" placeholder="Ex.: Preparar material de treino">
+<label for="due">Prazo opcional</label><input type="date" id="due" name="due"><button type="submit">Adicionar</button></form>
+<p id="status" role="status" aria-live="polite"></p>
+<section class="panel" aria-labelledby="listTitle"><h2 id="listTitle">Minhas demandas</h2><div class="row"><label for="filter">Situação<select id="filter"><option value="all">Todas</option><option value="pending">Pendentes</option><option value="done">Concluídas</option></select></label><label for="search">Buscar título<input id="search" type="search" placeholder="Digite parte do título"></label></div>
+<p id="count" class="meta"></p><div id="list"></div></section>
+<section class="panel" aria-labelledby="copyTitle"><h2 id="copyTitle">Cópia dos registros</h2><p>Exportar baixa um arquivo. Importar valida o arquivo e pede confirmação antes de substituir a lista deste navegador. Limite: 1.000 demandas e arquivo de 1 MB.</p><button id="exportBtn" type="button">Exportar cópia</button>
+<label for="importFile">Importar cópia</label><input id="importFile" type="file" accept=".json,application/json"><small>Teste a restauração em uma janela privada para preservar sua lista original.</small></section>
+<footer>Curso aberto e gratuito · <a href="https://inema.club">INEMA.CLUB</a> · Dados de treino · versão 1.0.0</footer>
+</main><script>
+'use strict';
+const STORE='inema-ideia-app-lab-v1', MAX_TASKS=1000;
+const el=id=>document.getElementById(id);
+let tasks=[],broken=false,raw='';
+function message(text,error=false){el('status').textContent=text;el('status').dataset.error=String(error)}
+function validDate(value){if(value==='')return true;if(!/^\d{4}-\d{2}-\d{2}$/.test(value))return false;const d=new Date(value+'T12:00:00Z');return !Number.isNaN(d.getTime())&&d.toISOString().slice(0,10)===value}
+function validate(data){
+ if(!data||data.version!==1||!Array.isArray(data.tasks)||data.tasks.length>MAX_TASKS)throw Error('Formato inválido');
+ const ids=new Set();return data.tasks.map(t=>{
+  if(!t||typeof t.id!=='string'||t.id.length>100||!t.id||ids.has(t.id)||typeof t.title!=='string'||!t.title.trim()||t.title.trim().length>120||typeof t.done!=='boolean'||typeof t.due!=='string'||!validDate(t.due))throw Error('Registro inválido');
+  ids.add(t.id);return{id:t.id,title:t.title.trim(),due:t.due,done:t.done};
+ });
+}
+try{raw=localStorage.getItem(STORE)||'';if(raw)tasks=validate(JSON.parse(raw))}catch(e){broken=true;el('recovery').hidden=false;message('Não foi possível ler os dados locais. Preserve a cópia original.',true)}
+function save(next){
+ if(broken){message('Recupere os dados antes de alterar a lista.',true);return false}
+ try{localStorage.setItem(STORE,JSON.stringify({version:1,tasks:next}));tasks=next;render();return true}
+ catch(e){message('Não foi possível salvar. Exporte uma cópia e confira as configurações do navegador.',true);return false}
+}
+function render(){
+ const list=el('list');list.replaceChildren();
+ const term=el('search').value.trim().toLocaleLowerCase('pt-BR'),filter=el('filter').value;
+ const visible=tasks.filter(t=>(filter==='all'||(filter==='done'?t.done:!t.done))&&t.title.toLocaleLowerCase('pt-BR').includes(term));
+ el('count').textContent=`${visible.length} exibida(s) · ${tasks.length} no total`;
+ if(!visible.length){const p=document.createElement('p');p.className='empty';p.textContent='Nenhuma demanda neste filtro. Escolha Todas ou cadastre uma demanda.';list.append(p)}
+ for(const t of visible){const article=document.createElement('article');article.className='item';const h=document.createElement('h3');h.textContent=t.title;const p=document.createElement('p');p.className='meta';p.textContent=(t.done?'Concluída':'Pendente')+(t.due?' · Prazo: '+t.due.split('-').reverse().join('/'):' · Sem prazo');const b=document.createElement('button');b.type='button';b.textContent=t.done?'Reabrir':'Concluir';b.setAttribute('aria-label',(t.done?'Reabrir ':'Concluir ')+t.title);b.addEventListener('click',()=>{if(save(tasks.map(x=>x.id===t.id?{...x,done:!x.done}:x)))message(t.done?'Demanda reaberta.':'Demanda concluída.')});article.append(h,p,b);list.append(article)}
+}
+el('taskForm').addEventListener('submit',event=>{event.preventDefault();const title=el('title').value.trim(),due=el('due').value;if(!title){message('Preencha o título da demanda.',true);el('title').focus();return}if(title.length>120||!validDate(due)){message('Confira o título e o prazo informado.',true);return}if(tasks.length>=MAX_TASKS){message('Limite de 1.000 demandas atingido. Exporte sua cópia.',true);return}const id=globalThis.crypto?.randomUUID?crypto.randomUUID():Date.now().toString(36)+'-'+Math.random().toString(36).slice(2);if(save([...tasks,{id,title,due,done:false}])){el('taskForm').reset();message('Demanda adicionada.');el('title').focus()}});
+for(const id of ['filter','search'])el(id).addEventListener('input',render);
+function download(content,name,type='application/json'){const url=URL.createObjectURL(new Blob([content],{type}));const a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)}
+el('exportBtn').addEventListener('click',()=>{if(broken){message('Use Exportar conteúdo original para preservar a recuperação.',true);return}download(JSON.stringify({version:1,tasks},null,2),'demandas-treino.json');message('Cópia preparada. Confira o arquivo baixado.')});
+el('rawExport').addEventListener('click',()=>download(raw,'dados-originais.txt','text/plain'));
+el('importFile').addEventListener('change',async()=>{const file=el('importFile').files[0];if(!file)return;try{if(file.size>1024*1024)throw Error('Arquivo grande');const next=validate(JSON.parse(await file.text()));if(!confirm(`Substituir a lista deste navegador por ${next.length} demanda(s)? Exporte uma cópia antes de continuar.`)){message('Importação cancelada. Lista preservada.');return}const wasBroken=broken;broken=false;if(save(next)){el('recovery').hidden=true;message('Cópia importada. Confira os títulos e as situações.')}else broken=wasBroken}catch(e){message('Arquivo inválido. A lista atual foi preservada.',true)}finally{el('importFile').value=''}});
+window.addEventListener('storage',event=>{if(event.key===STORE){try{tasks=event.newValue?validate(JSON.parse(event.newValue)):[];broken=false;el('recovery').hidden=true;render();message('Lista atualizada por outra aba.')}catch(e){broken=true;raw=event.newValue||'';el('recovery').hidden=false;message('Outra aba gravou dados que não puderam ser lidos.',true)}}});
+render();
+</script></body></html>

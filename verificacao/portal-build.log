@@ -1,0 +1,76 @@
+
+> portal-inema@0.3.0 build
+> next build --webpack
+
+▲ Next.js 16.1.6 (webpack)
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 3.6s
+  Running TypeScript ...
+  Collecting page data using 19 workers ...
+  Generating static pages using 19 workers (0/360) ...
+  Generating static pages using 19 workers (90/360) 
+  Generating static pages using 19 workers (180/360) 
+  Generating static pages using 19 workers (270/360) 
+✓ Generating static pages using 19 workers (360/360) in 2.2s
+  Finalizing page optimization ...
+  Collecting build traces ...
+
+Route (app)                                                              Revalidate  Expire
+┌ ○ /                                                                            1m      1y
+├ ○ /_not-found
+├ ○ /agentes-de-inteligencia-artificial
+├ ƒ /api/click
+├ ƒ /api/courses
+├ ƒ /api/knowledge
+├ ƒ /api/projects
+├ ○ /api/repos                                                                  10m      1y
+├ ○ /api/repos-updates                                                          30m      1y
+├ ƒ /api/trails
+├ ƒ /api/updates
+├ ƒ /api/visit
+├ ƒ /api/webmcp-origin-trial
+├ ○ /aprender-inteligencia-artificial
+├ ○ /comunidade-inteligencia-artificial
+├ ● /conhecimento/[slug]
+│ ├ /conhecimento/o-que-e-webmcp
+│ ├ /conhecimento/diferenca-entre-mcp-e-webmcp
+│ ├ /conhecimento/como-preparar-um-site-para-agentes-de-ia
+│ └ [+4 more paths]
+├ ƒ /courses-sitemap.xml
+├ ○ /cursos
+├ ● /cursos/[slug]
+│ ├ /cursos/183-10-cara-design-character-design-styles
+│ ├ /cursos/281-agent-skills-crie-skills-verificaveis-no-codex
+│ ├ /cursos/305-agente-sob-controle-v2-use-agentes-de-ia-sem-se-queimar
+│ └ [+312 more paths]
+├ ○ /en                                                                          1m      1y
+├ ○ /en/cursos
+├ ○ /en/eventos                                                                  1h      1y
+├ ○ /en/learn-artificial-intelligence
+├ ○ /en/noticias                                                                 1h      1y
+├ ○ /es                                                                          1m      1y
+├ ○ /es/aprender-inteligencia-artificial
+├ ○ /es/cursos
+├ ○ /es/eventos                                                                  1h      1y
+├ ○ /es/noticias                                                                 1h      1y
+├ ○ /eventos                                                                     1h      1y
+├ ƒ /feed.xml
+├ ○ /ia
+├ ● /ia/[slug]
+│ ├ /ia/como-criar-um-agente-de-ia
+│ └ /ia/como-criar-um-jarvis-com-ia
+├ ƒ /llms.txt
+├ ○ /noticias                                                                    1h      1y
+├ ○ /robots.txt
+├ ○ /sitemap.xml
+├ ○ /stats                                                                       1m      1y
+└ ○ /videos
+
+
+ƒ Proxy (Middleware)
+
+○  (Static)   prerendered as static content
+●  (SSG)      prerendered as static HTML (uses generateStaticParams)
+ƒ  (Dynamic)  server-rendered on demand
+

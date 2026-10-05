@@ -1,0 +1,14 @@
+[content-base] base.json: 18466 itens {
+  resumo: 2477,
+  projeto: 280,
+  wiki: 157,
+  curso: 314,
+  clip: 12399,
+  live: 1393,
+  telegram: 6,
+  prompt: 1440
+}
+[content-base] capas: 1245 resumos + 12399 clips com img
+[content-base] enrichment: 100% dos curso/projeto classificados ✓
+catalog.json: 315 cursos | 281 projetos | 30+18 updates | 601 repos | Agentes:86 Claude Code:83 Skills:35 Vídeo:31 Automação:30 MCP:22 Produtividade:20 Design:12
+[gen-content-base] 18466 itens (14550 classificados) + taxonomia.json

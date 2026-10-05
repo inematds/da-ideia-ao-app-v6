@@ -1,0 +1,23 @@
+{
+  "id": 316,
+  "title": "Da Ideia ao App v6 — Desenvolva com IA, passo a passo",
+  "description": "24 aulas curtas para orientar a IA, construir um aplicativo pessoal, testar resultados e preparar uma demonstração. Inclui organizador de demandas, kit editável e práticas com dados fictícios.",
+  "url": "https://inematds.github.io/da-ideia-ao-app-v6/",
+  "ficha": "https://www.inema.club/cursos/316-da-ideia-ao-app-v6-desenvolva-com-ia-passo-a-passo/",
+  "repositorio": "inematds/da-ideia-ao-app-v6",
+  "enrichment": {
+    "tipo": "curso",
+    "nivel": "iniciante",
+    "area": [
+      "claude-code-ferramentas-ia",
+      "engenharia-arquitetura-software"
+    ],
+    "problema": [
+      "Quero desenvolver com IA, mas não sei orientar e verificar a entrega."
+    ],
+    "saida": "Conduzir, testar e demonstrar um aplicativo pessoal com limites claros.",
+    "status": "atual",
+    "prereqs": [],
+    "relacionados": []
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "id": "inema-da-ideia-ao-app-v6",
+  "titulo": "Da Ideia ao App v6 — Desenvolva com IA, passo a passo",
+  "titulo_html": "Da ideia ao <em>app</em> <small>v6</small>",
+  "curso_curto": "Da Ideia ao App v6",
+  "kicker": "Da Ideia ao App v6 · Desenvolvimento com IA",
+  "lead": "Aprenda a orientar a IA, construir uma aplicação pessoal e conferir o resultado. 24 aulas, um organizador de demandas e práticas com dados fictícios.",
+  "rodape": "Da Ideia ao App v6 · INEMA.CLUB · Curso aberto e gratuito",
+  "landing": "index.html",
+  "imagem_trilha": "assets/img/trilha.webp",
+  "alt_trilha": "Duas pessoas conferem uma lista de demandas no computador, com anotações e materiais de trabalho na mesa.",
+  "perfil": "tecnico",
+  "glossario": true,
+  "modulos": [
+    {
+      "titulo": "1. Uma ideia que cabe na primeira versão",
+      "resumo": "Defina público, problema e critérios de pronto.",
+      "aulas": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "titulo": "2. Da conversa para uma tela utilizável",
+      "resumo": "Prepare o treino, construa e preserve uma versão.",
+      "aulas": [
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "titulo": "3. Entenda como seu aplicativo funciona",
+      "resumo": "Conecte tela, regras, dados e contexto do projeto.",
+      "aulas": [
+        9,
+        10,
+        11,
+        12
+      ]
+    },
+    {
+      "titulo": "4. Teste antes de confiar",
+      "resumo": "Verifique funções, limites, correções e melhorias.",
+      "aulas": [
+        13,
+        14,
+        15,
+        16
+      ]
+    },
+    {
+      "titulo": "5. Prepare a passagem para outras pessoas",
+      "resumo": "Entenda dados, identidade, permissões e testes de acesso.",
+      "aulas": [
+        17,
+        18,
+        19,
+        20
+      ]
+    },
+    {
+      "titulo": "6. Demonstre e evolua com controle",
+      "resumo": "Prepare publicação, operação e uma próxima versão pequena.",
+      "aulas": [
+        21,
+        22,
+        23,
+        24
+      ]
+    }
+  ]
+}
