@@ -7,3 +7,5 @@ Repositório Git local criado; remoto público ainda não criado. Pergunta de au
 Próximos passos após autorização: criar remoto inematds/da-ideia-ao-app-v6; push main; habilitar Pages da raiz; conferir HTTP e conteúdo publicado; integrar commits dos três checkouts isolados e push para os remotos corretos. Nunca consultar Vercel.
 
 Cópias de trabalho do portal, buscas e PRO em /home/nmaldaner/projetos/output/da-ideia-ao-app-v6/publicacao/. Lista de repositórios do catálogo reutiliza snapshot local, sem consultas GitHub API. Pastas originais permanecem sem nossas edições.
+
+Commits locais preparados: curso 242e995 (mais acabamento documental posterior), portal 6cdd910, buscas 0fee7ae, PRO a16c466. Nenhum destes commits foi enviado ao remoto.

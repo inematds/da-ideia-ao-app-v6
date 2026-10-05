@@ -99,4 +99,3 @@ Tipo: fundamento com prática. Gancho: Demonstre o que você realmente construiu
 ## 24. Demonstre o que você realmente construiu
 Promessa: apresentar uma entrega com testes, limites e próxima versão.
 Tipo: fundamento com prática. Gancho: Próxima versão delimitada.
-

@@ -9,9 +9,9 @@
   Running TypeScript ...
   Collecting page data using 19 workers ...
   Generating static pages using 19 workers (0/360) ...
-  Generating static pages using 19 workers (90/360) 
-  Generating static pages using 19 workers (180/360) 
-  Generating static pages using 19 workers (270/360) 
+  Generating static pages using 19 workers (90/360)
+  Generating static pages using 19 workers (180/360)
+  Generating static pages using 19 workers (270/360)
 ✓ Generating static pages using 19 workers (360/360) in 2.2s
   Finalizing page optimization ...
   Collecting build traces ...
@@ -73,4 +73,3 @@ Route (app)                                                              Revalid
 ○  (Static)   prerendered as static content
 ●  (SSG)      prerendered as static HTML (uses generateStaticParams)
 ƒ  (Dynamic)  server-rendered on demand
-
