@@ -1,14 +1,16 @@
-# Publicação preparada
+# Publicação concluída
 
-- Curso: /home/nmaldaner/projetos/da-ideia-ao-app-v6 — main.
-- Portal: /home/nmaldaner/projetos/output/da-ideia-ao-app-v6/publicacao/portal — codex/da-ideia-ao-app-v6; commit 6cdd910; destino origin/main (NeiMaldaner/portal).
-- Buscas: pasta irmã inemabuscas; commit 0fee7ae; destino remoto inemabuscas/main (inematds/inemabuscas), não origin legado.
-- PRO: pasta irmã inemapro-mono; commit a16c466; destino origin/main (inematds/inemapro).
+Curso público: https://inematds.github.io/da-ideia-ao-app-v6/
+Repositório: https://github.com/inematds/da-ideia-ao-app-v6
+Ficha do portal: https://www.inema.club/cursos/318-da-ideia-ao-app-v6-desenvolva-com-ia-passo-a-passo/
 
-API GitHub: autorização permanente concedida em 2026-10-05 e registrada nas regras globais. Não usar API de modelos. Não dar push nos catálogos antes de conferir o curso publicado.
+GitHub Pages usa main e raiz. Todas as URLs verificadas estão em verificacao/publicado.json, com HTTP 200 e igualdade de bytes. Pushes dos catálogos:
+- portal: c9951c6a8464bb2e6999a06226137fb179ad5bce
+- inemabuscas: e06cce6883601a4bca03d0b1e30d57a0fce0c41d
+- inemapro-mono: dceb2d14d0fe0ab38e699cce5f6621e8b6e5505b
 
-Antes de integrar, conferir commits novos nos originais e remotos; não sobrescrever mudanças de outras sessões. Portal original tem tsconfig.tsbuildinfo modificado por outra sessão; PRO original tem apps/pro/data/atualizacao.json modificado por outra sessão. Usar push dos branches isolados para main, sem forçar. Se divergir, rebase e regenerar os derivados com todas as entradas preservadas.
+Portal usa origin (NeiMaldaner/portal); buscas usa inemabuscas (inematds/inemabuscas), não o origin legado; PRO usa origin (inematds/inemapro). Os catálogos incluem todas as atualizações concorrentes encontradas antes de publicar. Testes e build passaram; Vercel não foi consultado.
 
-A geração do catálogo PRO normalmente chama gh api para atualizar repos. Nesta preparação, um script temporário copiou o gerador e substituiu apenas essa consulta pelo array repos já existente em apps/pro/data/catalog.json do original. O temporário foi removido após gerar. Na publicação final, o gerador oficial consultou GitHub após a autorização permanente. As demais gerações usaram PORTAL_DIR e os caminhos locais de wiki/prompts. Metadados novos em publicacao.json.
+A API GitHub tem autorização permanente nas regras globais desde 2026-10-05. Na preparação sem autorização, a lista de repos foi preservada de um snapshot. Após a autorização, a geração final usou o script oficial. Nenhuma API de modelos foi usada.
 
-Publicação do curso: git push para origin; GitHub Pages por main e raiz; conferir HTTP e conteúdo de index.html, curso.html, pratica/index.html, materiais/kit-organizador.zip e capa/capa.png. Portal: push suficiente, sem consultar Vercel.
+A fonte da página do curso é scripts/construir.py + scripts/conteudo*.py. O construtor lê context/publicacao.json para manter a ficha do portal após remontar.

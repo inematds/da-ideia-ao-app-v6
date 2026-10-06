@@ -19,5 +19,11 @@
     "status": "atual",
     "prereqs": [],
     "relacionados": []
+  },
+  "status": "publicado",
+  "commits_catalogos": {
+    "portal": "c9951c6a8464bb2e6999a06226137fb179ad5bce",
+    "inemabuscas": "e06cce6883601a4bca03d0b1e30d57a0fce0c41d",
+    "inemapro-mono": "dceb2d14d0fe0ab38e699cce5f6621e8b6e5505b"
   }
 }

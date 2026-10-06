@@ -1,0 +1,37 @@
+[
+  {
+    "arquivo": "index.html",
+    "http": 200,
+    "igual_ao_local": true
+  },
+  {
+    "arquivo": "curso.html",
+    "http": 200,
+    "igual_ao_local": true
+  },
+  {
+    "arquivo": "pratica/index.html",
+    "http": 200,
+    "igual_ao_local": true
+  },
+  {
+    "arquivo": "materiais/kit-organizador.zip",
+    "http": 200,
+    "igual_ao_local": true
+  },
+  {
+    "arquivo": "capa/capa.png",
+    "http": 200,
+    "igual_ao_local": true
+  },
+  {
+    "arquivo": "assets/aula.css",
+    "http": 200,
+    "igual_ao_local": true
+  },
+  {
+    "arquivo": "assets/curso.js",
+    "http": 200,
+    "igual_ao_local": true
+  }
+]
