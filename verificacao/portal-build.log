@@ -5,14 +5,14 @@
 ▲ Next.js 16.1.6 (webpack)
 
   Creating an optimized production build ...
-✓ Compiled successfully in 3.6s
+✓ Compiled successfully in 2.0s
   Running TypeScript ...
   Collecting page data using 19 workers ...
-  Generating static pages using 19 workers (0/360) ...
-  Generating static pages using 19 workers (90/360)
-  Generating static pages using 19 workers (180/360)
-  Generating static pages using 19 workers (270/360)
-✓ Generating static pages using 19 workers (360/360) in 2.2s
+  Generating static pages using 19 workers (0/362) ...
+  Generating static pages using 19 workers (90/362)
+  Generating static pages using 19 workers (180/362)
+  Generating static pages using 19 workers (271/362)
+✓ Generating static pages using 19 workers (362/362) in 1815.1ms
   Finalizing page optimization ...
   Collecting build traces ...
 
@@ -43,7 +43,7 @@ Route (app)                                                              Revalid
 │ ├ /cursos/183-10-cara-design-character-design-styles
 │ ├ /cursos/281-agent-skills-crie-skills-verificaveis-no-codex
 │ ├ /cursos/305-agente-sob-controle-v2-use-agentes-de-ia-sem-se-queimar
-│ └ [+312 more paths]
+│ └ [+314 more paths]
 ├ ○ /en                                                                          1m      1y
 ├ ○ /en/cursos
 ├ ○ /en/eventos                                                                  1h      1y

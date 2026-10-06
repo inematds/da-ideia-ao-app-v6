@@ -32,11 +32,15 @@ Relatórios em `verificacao/` e `context/`. Revisão simulada não equivale a te
 
 ## Publicação
 
-Destino solicitado: `inematds/da-ideia-ao-app-v6`, GitHub Pages na raiz de `main`; depois catálogo e feed do portal, buscas e PRO. Publicação externa pendente da criação do remoto e habilitação de Pages. A regra global exige autorização expressa antes de usar a API do GitHub para essas duas operações.
+Repositório público: https://github.com/inematds/da-ideia-ao-app-v6
+
+Curso: https://inematds.github.io/da-ideia-ao-app-v6/
+
+GitHub Pages publica a raiz de `main`. O curso integra o catálogo e o feed de cursos do portal, buscas e PRO.
 
 ## Mais no INEMA.CLUB
 
-Destino da ficha após publicação: https://www.inema.club/cursos/316-da-ideia-ao-app-v6-desenvolva-com-ia-passo-a-passo/
+Ficha do curso: https://www.inema.club/cursos/318-da-ideia-ao-app-v6-desenvolva-com-ia-passo-a-passo/
 
 Guia: https://www.inema.club/aprender-inteligencia-artificial/
 

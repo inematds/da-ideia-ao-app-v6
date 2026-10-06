@@ -1,0 +1,6 @@
+
+> portal-inema@0.3.0 gen:data
+> node tools/gen-courses-data.mjs && node scripts/traduz-feeds.mjs
+
+courses.data.json: 317 cursos | 297 updates | 220 projUpdates | 12 videoUpdates | 284 projetos
+traduz-feeds: cache completo (106 textos × 2 idiomas)
